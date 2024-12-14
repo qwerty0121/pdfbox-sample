@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import org.apache.pdfbox.io.IOUtils;
+import org.apache.pdfbox.io.RandomAccessRead;
 import org.apache.pdfbox.io.RandomAccessReadBuffer;
 import org.apache.pdfbox.multipdf.PDFMergerUtility;
 
@@ -24,7 +25,7 @@ public class PDFBoxSample {
         }
     }
 
-    private static RandomAccessReadBuffer getSource(String name) throws IOException {
+    private static RandomAccessRead getSource(String name) throws IOException {
         try (var is = PDFBoxSample.class.getClassLoader().getResourceAsStream(name);) {
             return new RandomAccessReadBuffer(is);
         }
